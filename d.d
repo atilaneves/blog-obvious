@@ -1,6 +1,6 @@
 extern(C) double add2(double* values, long length) {
     version(loop) {
-        double ret;
+        double ret = 0.0;
         foreach(i; 0 .. length) {
             ret += values[i] * values[i];
         }
@@ -12,4 +12,16 @@ extern(C) double add2(double* values, long length) {
     } else {
         static assert(false);
     }
+}
+
+
+auto add2(double[] values) {
+    return add2(values.ptr, values.length);
+}
+
+unittest {
+    import std.conv: text;
+    auto values = [1.0, 2.0];
+    const ret = add2(values);
+    assert(ret == 5.0, ret.text);
 }
