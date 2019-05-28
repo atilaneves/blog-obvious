@@ -6,7 +6,7 @@ import std.algorithm;
 
 enum NUM_RUNS = 10;
 
-extern(C) double add2(double* values, long length);
+extern(C) double add2(const double* values, const long length);
 
 void main() {
     const length = 32_000_000;

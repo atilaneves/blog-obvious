@@ -4,7 +4,7 @@
 #endif
 
 
-extern "C" double add2(double* values, long length) {
+extern "C" double add2(const double* values, const long length) {
     #if LOOP
     double ret = 0.0;
     for(long i = 0; i < length; ++i) {
