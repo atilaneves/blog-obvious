@@ -25,13 +25,13 @@ d-algorithm: d.d bench.o
 	ldc2 -d-version=algorithm -O2 $^ -of $@
 
 rs-loop: rs-loop.o bench.o
-	ldc2 $^ -of $@ ~/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/libstd-296aebc3a1e4ecfc.so
+	ldc2 $^ -of $@ ~/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/libstd-44988553032616b2.so
 
 rs-loop.o: rs.rs Makefile
 	rustc --cfg _loop -C opt-level=2 --crate-type=lib --emit=obj rs.rs -o $@
 
 rs-algorithm: rs-algorithm.o bench.o
-	ldc2 $^ -of $@ ~/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/libstd-296aebc3a1e4ecfc.so
+	ldc2 $^ -of $@ ~/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/libstd-44988553032616b2.so
 
 rs-algorithm.o: rs.rs Makefile
 	rustc --cfg algorithm -C opt-level=2 --crate-type=lib --emit=obj rs.rs -o $@
